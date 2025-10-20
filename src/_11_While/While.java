@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class While {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
         // 반복문
         // 조건이 참일 경우 반복
         // for문 -> 회수
@@ -37,7 +39,7 @@ public class While {
 //        }
 //
 //        boolean flag = true;
-        Scanner scanner = new Scanner(System.in);
+
 //
 //        while (flag) {
 //            int score = scanner.nextInt();
@@ -77,22 +79,53 @@ public class While {
 //        }
 
         // 1 ~ 100의 합
-        int num = 0;
-        int sum = 0;
-
-        while (true) {
-            sum += num;
-            ++num;
-            if (num > 100) {
-                break;
-            }
-        }
-        System.out.println(sum);
+//        int num = 0;
+//        int sum = 0;
+//
+//        while (true) {
+//            sum += num;
+//            ++num;
+//            if (num > 100) {
+//                break;
+//            }
+//        }
+//        System.out.println(sum);
 
         // 1 ~ 100
         // 10일때 메뉴 sold out
         // sold out 이면 가게 폐점
         // 폐점 이후 영업 종료 출력
+        int customer = 0;
+
+//        while (customer <= 100) {
+//            ++customer;
+//            System.out.println(customer + " 번째 손님 입장");
+//            if (customer % 10 == 0) {
+//                System.out.println("Sold Out");
+//                break;
+//            }
+//        }
+//        System.out.println("영업종료");
+
+        int noShow;
+        int menu = 20;
+        noShow = scanner.nextInt();
+
+        while (customer <= 50) {
+            ++customer;
+            menu--;
+            if(customer == noShow){
+                System.out.println(noShow + " 번 손님 노쇼");
+                menu++;
+            } else {
+                System.out.println(customer + " 번째 손님 입장");
+            }
+            if (menu == 0) {
+                System.out.println("Sold Out");
+                break;
+            }
+        }
+        System.out.println("영업 종료");
 
     }
 }
