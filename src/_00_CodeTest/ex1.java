@@ -13,7 +13,5 @@ public class ex1 {
             str[i] = String.valueOf(A.charAt(i));
         }
         System.out.println(Arrays.toString(str));
-
-
     }
 }
