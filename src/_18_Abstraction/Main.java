@@ -32,6 +32,5 @@ public class Main {
         tabletFactory.upgrade("아이패드 미니 7세대");
         tabletFactory.manage();
         tabletFactory.displayInfo();
-
     }
 }

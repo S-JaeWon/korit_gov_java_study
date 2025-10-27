@@ -9,8 +9,4 @@ public class PhoneFactory extends Factory {
         System.out.println("[" + model + "] 모델 스마트폰 생산");
     }
 
-    @Override
-    public void manage() {
-        System.out.println("공장 관리");
-    }
 }

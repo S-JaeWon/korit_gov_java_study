@@ -24,11 +24,13 @@ public abstract class Factory {
     // 추상 메서드 정의
     public abstract void produce(String model);
 
-    public abstract void manage();
-
     // 일반 메서드도 사용 가능
     public void displayInfo() {
         System.out.println("공장 정보를 출력합니다.");
         System.out.println("공장 이름: " + factoryName);
     }
+
+    public void manage() {
+        System.out.println(getFactoryName() + " 을 관리 합니다.");
+    };
 }

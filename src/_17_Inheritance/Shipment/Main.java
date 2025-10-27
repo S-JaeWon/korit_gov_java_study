@@ -7,6 +7,9 @@ public class Main {
         bike.route();
         System.out.println(bike.calcFee(50, 100));
 
+        TruckShipment truck = new TruckShipment("인도", "파키스탄");
 
+        truck.route();
+        System.out.println(truck.calcFee(300,1200));
     }
 }
