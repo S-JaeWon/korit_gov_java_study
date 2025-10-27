@@ -12,6 +12,7 @@ public class Main {
         circle.drawInternal();
         System.out.println("넓이 : " + circle.area());
         circle.postDraw();
+        circle.render();
 
         Shape a = new Circle(5);
         Shape b = new Rectangle(10, 15);
@@ -27,5 +28,6 @@ public class Main {
             shape.drawInternal();
         }
 
+        circle.render();
     }
 }

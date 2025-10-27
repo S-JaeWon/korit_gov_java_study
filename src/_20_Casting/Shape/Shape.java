@@ -12,6 +12,13 @@ package _20_Casting.Shape;
  * */
 
 public abstract class Shape {
+
+    public void render() {
+        preDraw();
+        drawInternal();
+        postDraw();
+    }
+
     protected void preDraw() {
         System.out.println("그리기 준비");
     }
