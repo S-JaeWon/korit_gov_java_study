@@ -21,7 +21,7 @@ public class Triangle extends Shape {
         System.out.println("삼각형 그리기");
     }
     @Override
-    protected double area() {
+    public double area() {
         return (base * height) / 2;
     }
 
