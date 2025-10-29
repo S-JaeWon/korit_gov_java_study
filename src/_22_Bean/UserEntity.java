@@ -46,7 +46,7 @@ public class UserEntity {
 
     @Override
     public String toString() {
-        return "UserEntity: " + "userId = " + userId + ", username = " + username + ", age = " + age + ", email = " + email;
+        return "UserEntity(userId = " + userId + ", username = " + username + ", age = " + age + ", email = " + email + ")";
     }
 
     // Entity
