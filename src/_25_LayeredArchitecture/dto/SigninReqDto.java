@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class SigninDto {
+public class SigninReqDto {
     private String username;
     private String password;
 }
