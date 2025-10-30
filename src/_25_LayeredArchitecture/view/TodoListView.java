@@ -2,7 +2,10 @@ package _25_LayeredArchitecture.view;
 
 import _25_LayeredArchitecture.dto.SigninReqDto;
 import _25_LayeredArchitecture.dto.SignupReqDto;
+import _25_LayeredArchitecture.dto.TodoReqDto;
+import _25_LayeredArchitecture.entity.Todo;
 import _25_LayeredArchitecture.entity.User;
+import _25_LayeredArchitecture.service.TodoService;
 import _25_LayeredArchitecture.service.UserService;
 
 import java.util.Scanner;
@@ -12,10 +15,12 @@ public class TodoListView {
     private Scanner scanner;
     private User principal;
     private UserService userService;
+    private TodoService todoService;
 
-    public TodoListView(UserService userService) {
+    public TodoListView(UserService userService, TodoService todoService) {
         scanner = new Scanner(System.in);
         this.userService = userService;
+        this.todoService = todoService;
     }
 
     public void homeView() {
@@ -40,11 +45,15 @@ public class TodoListView {
                     System.out.println("로그인을 해주세요.");
                     continue;
                 }
+                todoListMenu();
             } else if ("2".equals(cmd) && principal == null) {
                 // 회원가입
                 signupView();
             } else if ("2".equals(cmd) && principal != null) {
                 // 로그아웃
+                principal = null;
+                System.out.println("로그아웃");
+
             } else if ("3".equals(cmd) && principal == null) {
                 // 로그인
                 signinView();
@@ -95,7 +104,34 @@ public class TodoListView {
         }
         principal = foundUser;
         System.out.println("로그인 성공");
+    }
 
 
+    public void todoListMenu() {
+        Todo todo = null;
+        while (true) {
+            System.out.println("TodoList menu");
+            System.out.println("1. 등록하기");
+            System.out.println("2. 조회하기");
+            System.out.println("3. 뒤로가기");
+            System.out.print(" -> ");
+            String cmd = scanner.nextLine();
+
+            if("b".equals(cmd)) {
+                break;
+            } else if ("1".equals(cmd)) {
+                System.out.println("Todo 등록");
+                System.out.print("Todo: ");
+                String contents = scanner.nextLine();
+
+                TodoReqDto todoReqDto = new TodoReqDto(contents, todo.getUser());
+                todoService.createTodo(todoReqDto);
+                System.out.println("Todo 등록 완료");
+
+            } else if ("2".equals(cmd)) {
+                System.out.println("Todo 조회");
+
+            }
+        }
     }
 }

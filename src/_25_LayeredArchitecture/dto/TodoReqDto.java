@@ -1,5 +1,6 @@
 package _25_LayeredArchitecture.dto;
 
+import _25_LayeredArchitecture.entity.Todo;
 import _25_LayeredArchitecture.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,4 +14,12 @@ import lombok.ToString;
 public class TodoReqDto {
     private String contents;
     private User user;
+
+    public Todo toEntity() {
+        return Todo.builder()
+                .todoId(0)
+                .contents(contents)
+                .user(user)
+                .build();
+    }
 }
