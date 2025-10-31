@@ -9,17 +9,28 @@ public class TodoList {
         this.todos = new Todo[0];
     }
 
-    public Todo getTodosByUserId(int userId) {
+    public Todo[] getTodosByUserId(int userId) {
+        int foundTodoCount = 0;
+
         for(Todo todo : todos) {
             if(todo.getUser().getUserId() == userId) {
-                return todo;
+                foundTodoCount++;
             }
-        }
-       return null;
+        } // 배열 길이
+
+        Todo[] foundTodos = new Todo[foundTodoCount];
+
+        for(int i = 0, j = 0; i < foundTodoCount; i++) {
+            if(todos[i].getUser().getUserId() == userId) {
+                foundTodos[j] = todos[i];
+                j++;
+            }
+        } // 찾은 배열 넣기
+
+        return foundTodos;
     }
 
     public int generateTodoId() {
-
         return todos.length == 0 ? 1 : todos[todos.length - 1].getTodoId() + 1;
     }
 

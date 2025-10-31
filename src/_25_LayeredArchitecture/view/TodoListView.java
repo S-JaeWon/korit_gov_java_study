@@ -113,7 +113,7 @@ public class TodoListView {
             System.out.println("TodoList menu");
             System.out.println("1. 등록하기");
             System.out.println("2. 조회하기");
-            System.out.println("3. 뒤로가기");
+            System.out.println("b. 뒤로가기");
             System.out.print(" -> ");
             String cmd = scanner.nextLine();
 
@@ -123,14 +123,13 @@ public class TodoListView {
                 System.out.println("Todo 등록");
                 System.out.print("Todo: ");
                 String contents = scanner.nextLine();
-
-                TodoReqDto todoReqDto = new TodoReqDto(contents, todo.getUser());
+                TodoReqDto todoReqDto = new TodoReqDto(contents, principal);
                 todoService.createTodo(todoReqDto);
                 System.out.println("Todo 등록 완료");
 
             } else if ("2".equals(cmd)) {
                 System.out.println("Todo 조회");
-
+                todoService.printTodoListByUser(principal);
             }
         }
     }
