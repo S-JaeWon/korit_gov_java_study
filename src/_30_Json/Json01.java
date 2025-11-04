@@ -15,11 +15,11 @@ public class Json01 {
         jsonObject.addProperty("email", "user@naver.com");
         jsonObject.addProperty("name", "재원");
 
-        System.out.println(jsonObject);
+        System.out.println("jsonObject: " + jsonObject);
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(jsonObject);
-        System.out.println(json);
+        System.out.println("json: " + json);
 
         // 중첩 내부 객체
         JsonObject address = new JsonObject();
@@ -32,6 +32,8 @@ public class Json01 {
         String json1 = gson.toJson(jsonObject);
         System.out.println(json1);
 
+        JsonObject jsonObject1 = gson.fromJson(json1, JsonObject.class);
+        System.out.println(jsonObject1);
     }
 
 }

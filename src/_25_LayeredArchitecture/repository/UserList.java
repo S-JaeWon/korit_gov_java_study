@@ -29,7 +29,7 @@ public class UserList {
 
     public void add(User user) {
         User[] user1 = new User[users.length + 1];
-        for(int i = 0; i < users.length; i++){
+        for (int i = 0; i < users.length; i++){
             user1[i] = users[i];
         }
         user1[user1.length - 1] = user;
