@@ -1,27 +1,23 @@
-package _25_LayeredArchitecture.dto;
+package _32_LayeredArchitecture2.dto;
 
-import _25_LayeredArchitecture.entity.User;
-import lombok.AllArgsConstructor;
+import _32_LayeredArchitecture2.entity.User;
+import _32_LayeredArchitecture2.util.PasswordEncoder;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
-@AllArgsConstructor
 @Getter
 @Setter
-@ToString
-
 public class SignupReqDto {
     private String username;
     private String password;
-    private String name;
+    private String passwordCheck;
 
     public User toEntity() {
         return User.builder()
                 .userId(0)
                 .username(username)
-                .password(password)
-                .name(name)
+                .password(PasswordEncoder.encode(password))
                 .build();
     }
+
 }
