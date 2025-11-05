@@ -22,10 +22,7 @@ public class SignupService {
 
     public boolean isValidDuplicatedUsername(String username) {
         User foundUser = userRepository.findByUsername(username);
-        if (foundUser == null) {
-            return true;
-        }
-        return false;
+        return foundUser == null;
     }
 
     public boolean isValidPassword(String password) {

@@ -1,8 +1,12 @@
 package _32_LayeredArchitecture2;
 
+import _32_LayeredArchitecture2.dto.SigninReqDto;
 import _32_LayeredArchitecture2.dto.SignupReqDto;
-import _32_LayeredArchitecture2.repository.UserRepository;
+
 import _32_LayeredArchitecture2.repository.UserRepositoryImpl;
+import _32_LayeredArchitecture2.repository.UserRepositoryImpl2;
+import _32_LayeredArchitecture2.service.SigninService;
+import _32_LayeredArchitecture2.service.SigninServiceImpl;
 import _32_LayeredArchitecture2.service.SignupService;
 
 import java.util.Scanner;
@@ -11,6 +15,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         SignupService signupService = SignupService.getInstance();
+        SigninService signinService = SigninServiceImpl.getInstance();
 
         while (true) {
             System.out.println("[회원가입 SYSTEM]");
@@ -59,8 +64,30 @@ public class Main {
 
             } else if ("2".equals(choice)) {
                 System.out.println("로그인");
+                SigninReqDto signinReqDto = new SigninReqDto();
+                while (true) {
+                    System.out.print("username: ");
+                    signinReqDto.setUsername(scanner.nextLine());
+                    if (!signinService.isEmpty(signinReqDto.getUsername())) {
+                        break;
+                    }
+                    System.out.println("다시 입력해주세요");
+                }
+
+                while (true) {
+                    System.out.print("password: ");
+                    signinReqDto.setPassword(scanner.nextLine());
+                    if(!signinService.isEmpty(signinReqDto.getPassword())) {
+                        break;
+                    }
+                    System.out.println("다시 입력해주세요");
+                }
+
+                signinService.signin(signinReqDto);
+
             } else if ("3".equals(choice)) {
                 System.out.println("회원 전체 조회");
+                System.out.println(UserRepositoryImpl2.getInstance().toString());
             }
         }
     }
