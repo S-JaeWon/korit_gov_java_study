@@ -10,6 +10,8 @@ package _34_Lamda;
 * */
 
 import java.util.Comparator;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,9 +39,18 @@ public class Main {
 
         // 람다식 장점 -> 코드 간결화, 표현력 향상
         // 람다식 단점 -> 디버깅 힘듦, 재사용성이 낮음, 복잡한 로직 표현 힘듦
+
         // 함수형 인터페이스
         // Runnable - void run(); -> 단순 실행만 가능한 인터페이스
         // Supplier - T get(); -> 값을 반환 하는 인터페이스
+        // Consumer - void accept(T t); -> 반환x, 값을 소비하는 인터페이스
+        // Function <T, R> - R apply(T t); -> 연산 수행후 값 반환 , R: 리턴 타입
+        // Predicate - boolean test(T t); -> 특정 조건을 검사 후, true / false 반환
 
+        Supplier<String> stringSupplier = () -> "Supplier 인터페이스 문자열 반환";
+//        System.out.println(stringSupplier.get());
+        Consumer<String> stringConsumer =
+                (message) -> System.out.println("메세지: " + message);
+        stringConsumer.accept(stringSupplier.get());
     }
 }
