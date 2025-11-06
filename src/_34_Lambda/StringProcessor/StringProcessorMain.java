@@ -1,4 +1,4 @@
-package _34_Lamda.StringProcessor;
+package _34_Lambda.StringProcessor;
 
 //1. StringProcessor라는 인터페이스 만들고 process라는 추상메소드 만들기 (매개변수로 String 받음)
 //2. Main에서 정적 메소드로 execute만들고 매개변수로 String input,

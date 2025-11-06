@@ -1,4 +1,4 @@
-package _34_Lamda.Calculator;
+package _34_Lambda.Calculator;
 
 import java.util.function.Predicate;
 

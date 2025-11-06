@@ -1,4 +1,4 @@
-package _34_Lamda;
+package _34_Lambda;
 
 /*
 * 람다식 -> 함수형 프로그래밍을 지원하기 위한 표현식

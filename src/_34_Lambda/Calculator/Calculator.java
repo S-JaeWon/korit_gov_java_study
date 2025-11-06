@@ -1,4 +1,4 @@
-package _34_Lamda.Calculator;
+package _34_Lambda.Calculator;
 
 /*
 * 람다식은 단일(하나의) 메소드만 가지는 함수형 인터페이스

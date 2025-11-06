@@ -1,4 +1,4 @@
-package _34_Lamda;
+package _34_Lambda;
 
 import java.util.Arrays;
 import java.util.List;
